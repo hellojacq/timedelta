@@ -5,6 +5,14 @@
 	font-family: helvetica neue, arial, sans-serif;
 }
 
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 #page {
 	width: 1280px;
 	margin: auto;
@@ -20,6 +28,10 @@
 	margin: 50px;
 }
 
+#content {
+	overflow: auto;
+}
+
 input[type="text"] {
 	border: none;
 	padding: 20px;
@@ -33,9 +45,13 @@ input[type="text"]:focus {
 	border-bottom: solid 2px #969696;
 }
 
+#output-data {
+	text-align: center;
+}
+
 .output {
 	float: left;
-	margin: 300px;
+	width: 300px;
 	margin: 10px;
 }
 
@@ -45,4 +61,10 @@ input[type="text"]:focus {
 	color: white;
 	border-radius: 20px;
 	text-align: center;
+	width: 100px;
+	margin: auto;
+}	
+
+.output-name:hover {
+	background-color: #969696;
 }	
