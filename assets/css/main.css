@@ -1,5 +1,32 @@
 * {
 	margin: 0;
 	padding: 0;
+	background-color: whitesmoke;
 }
 
+#page {
+	width: 1280px;
+	margin: auto;
+}
+
+#search {
+	margin: 50px 0 50px 0;
+	text-align: center;
+}
+
+#logo {
+	margin: 10px 0px;
+}
+
+input[type="text"] {
+	border: none;
+	padding: 20px;
+	border-bottom: solid 2px #c9c9c9;
+	background-color: white;
+	outline: none;
+	font-size: 1em;
+}
+
+input[type="text"]:focus {
+	border-bottom: solid 2px #969696;
+}
