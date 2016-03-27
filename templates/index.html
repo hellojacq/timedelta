@@ -14,7 +14,7 @@
 			</header>	
 			<div id="content">
 				<div id="search">
-					<input type="text" name="query" placeholder="Enter a date or timestamp" size="50" max-length="50" required="required" />	
+					<input type="text" id="js-query" name="query" placeholder="Enter a date or timestamp" size="50" max-length="50" required="required" />
 				</div>
 				<div id="output-data">
 					<div id="epoch" class="output">
@@ -43,11 +43,12 @@
 					</div>		
 				</div>	
 			</div>
-			<!--
-			<footer>
-				&copy; 2016 TIME DELT&Delta;
-			</footer>	
-			-->
 		</div>		
+    <!--
+      <footer>
+        &copy; 2016 TIME DELT&Delta;
+      </footer>	
+    -->
+    <script src="{{ static_url('js/main.js') }}"></script>
 	</body>
 </html>
