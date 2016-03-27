@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	background-color: whitesmoke;
+	font-family: helvetica neue, arial, sans-serif;
 }
 
 #page {
@@ -15,7 +16,8 @@
 }
 
 #logo {
-	margin: 10px 0px;
+	text-align: center;
+	margin: 50px;
 }
 
 input[type="text"] {
@@ -30,3 +32,17 @@ input[type="text"] {
 input[type="text"]:focus {
 	border-bottom: solid 2px #969696;
 }
+
+.output {
+	float: left;
+	margin: 300px;
+	margin: 10px;
+}
+
+.output-name {
+	padding: 10px;
+	background-color: #c9c9c9;
+	color: white;
+	border-radius: 20px;
+	text-align: center;
+}	
