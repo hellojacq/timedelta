@@ -46,7 +46,9 @@ input[type="text"]:focus {
 }
 
 #output-data {
+	margin: 100px 0px;
 	text-align: center;
+	overflow: auto;
 }
 
 .output {
@@ -68,3 +70,6 @@ input[type="text"]:focus {
 .output-name:hover {
 	background-color: #969696;
 }	
+
+.output-content {
+	margin: 10px 0px;
