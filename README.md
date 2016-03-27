@@ -18,7 +18,7 @@
 - ✓ Decide on MVP
 - ✓ Register DNS timedelta.com
 - ✗ Get hosting set up
-- ✗ Create rough HTML
+- ✓ Create rough HTML
 - ✗ Create a style guide
 - ✗ Create functionality (probably with Javascript, but could involve backend)
   - ✗ Event handlers to check for newly entered data
