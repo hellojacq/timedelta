@@ -1,0 +1,28 @@
+extends: base.yaml
+
+timedelta:
+  port: 9000
+
+tornado:
+  autoreload: true
+  debug: true
+
+logging:
+  version: 1
+  formatters:
+    simpleFormater:
+      format: '%(asctime)s - %(levelname)s: %(message)s'
+      datefmt: '%Y/%m/%d %H:%M:%S'
+  handlers:
+    console:
+      class: logging.StreamHandler
+      formatter: simpleFormater
+      level: DEBUG
+      stream: ext://sys.stdout
+  loggers:
+    clogger:
+      level: DEBUG
+      handlers: [console]
+  root:
+    level: DEBUG
+    handlers: [console]
