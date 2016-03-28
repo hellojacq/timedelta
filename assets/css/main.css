@@ -81,9 +81,21 @@ input[type="text"] {
   margin: 0px auto 30px auto;
 }	
 
-.output-name:hover {
-  background-color: #969696;
-}	
+#delta {
+  background-color: #161925;
+}
+
+#local {
+  background-color: #23395B;
+}
+
+#utc {
+  background-color: #406E8E;
+}
+
+#epoch {
+  background-color: #8EA8C3;
+}
 
 .output-content {
   background-color: white;
@@ -91,15 +103,15 @@ input[type="text"] {
 }
 
 input.no-input {
-  border-bottom: 2px solid #969696;
+  border-bottom: 3px solid #969696;
 }
 
 input.valid-input {
-  border-bottom: 2px solid rgba(81, 203, 81, 1);
+  border-bottom: 3px solid #91C499;
 }
 
 input.invalid-input {
-  border-bottom: 2px solid rgba(203, 81, 81, 1);
+  border-bottom: 3px solid #C05C69;
 }
 
 .message:empty {
