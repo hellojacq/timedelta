@@ -15,13 +15,15 @@ html {
 }
 
 #page {
-  width: 1280px;
+  width: auto;
   margin: auto;
 }
 
 #query {
   text-align: center;
-  height: 100px;
+  height: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 header {
@@ -50,6 +52,7 @@ input[type="text"] {
   background-color: white;
   outline: none;
   font-size: 1em;
+  width: 90%;
 
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
@@ -64,12 +67,47 @@ input[type="text"] {
 }
 
 .output {
-  float: left;
-  width: 300px;
-  margin: 10px;
+  width: auto;
+  margin: 20px;
   background-color: #ECECEC;
   padding: 20px;
   border-radius: 2px;
+  float: none;
+}
+
+@media (min-width: 768px) { 
+  #page {
+    width: 768px;
+    margin: auto;
+  }
+
+  .output {
+    width: 45%;
+    margin: 10px;
+    float: left;
+  }
+
+  input[type="text"] {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1280px) { 
+  #page {
+    width: 1280px;
+    margin: auto;
+  }
+  .output {
+    width: 23%;
+    margin: 10px;
+    float: left;
+    display: inline;
+    clear: none;
+  }
+
+  input[type="text"] {
+    width: 50%;
+  }
 }
 
 .output-name {
