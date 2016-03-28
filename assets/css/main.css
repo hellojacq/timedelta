@@ -18,13 +18,13 @@ html {
   margin: auto;
 }
 
-#search {
-  margin: 30px 0 30px 0;
+#query {
   text-align: center;
+  height: 100px;
 }
 
 header {
-  margin: 80px auto 50px auto;
+  margin: 80px auto;
 }
 
 #logo {
@@ -57,7 +57,7 @@ input[type="text"] {
 }
 
 #output-data {
-  margin: 100px 0px;
+  margin: 80px 0px;
   text-align: center;
   overflow: auto;
 }
@@ -116,6 +116,7 @@ input.invalid-input {
 .message {
   text-align: center;
   color: #969696;
+  margin-top: 10px;
 }
 
 .message:empty {
