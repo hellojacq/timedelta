@@ -88,3 +88,7 @@ input.valid-input {
 input.invalid-input {
   border-bottom: 2px solid rgba(203, 81, 81, 1);
 }
+
+.message:empty {
+  display: none;
+}

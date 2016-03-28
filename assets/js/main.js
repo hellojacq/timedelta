@@ -23,13 +23,12 @@ function removeClass(el, className) {
     }
 }
 
-function updateDependencies(inputMoment) {
-    if (inputMoment) {
-        deltaElement.innerText = inputMoment.toString();
-        isoElement.innerText = inputMoment.toString();
-        localElement.innerText = inputMoment.toString();
-        epochElement.innerText = inputMoment.unix();
-    }
+function updateDependencies(timeInfo) {
+    deltaElement.innerText = timeInfo.delta;
+    utcElement.innerText = timeInfo.utc;
+    localElement.innerText = timeInfo.local;
+    epochElement.innerText = timeInfo.unix;
+    errorElement.innerText = "";
 }
 
 function inputUpdateHandler(event) {
@@ -40,15 +39,73 @@ function inputUpdateHandler(event) {
 
     var input = event.target.value;
     if (input) {
-        var currentMoment = moment(event.target.value);
-        if (currentMoment.isValid()) {
+        var timeInfo = getTimeInfo(event.target.value);
+
+        if (timeInfo.isValid) {
             addClass(queryElement, "valid-input");
-            updateDependencies(currentMoment);
+            updateDependencies(timeInfo);
         } else {
             addClass(queryElement, "invalid-input");
+            if (timeInfo.error) {
+                errorElement.innerText = timeInfo.error;
+            }
         }
     } else {
         addClass(queryElement, "no-input");
+        errorElement.innerText = "No input";
+    }
+}
+
+function getTimeInfo(rawInput) {
+    var momentInput = null;
+    var relativeTime = "";
+
+    rawInput = rawInput.trim();
+    if (!rawInput) {
+        return {
+            "isValid": false,
+            "error": "Missing input",
+        }
+    } else {
+        if (rawInput === "now" || rawInput === "today") {
+            momentInput = moment();
+            relativeTime = "now";
+        } else if (rawInput.match(/^\d+$/)) {
+            if (rawInput.length == 13) {
+                momentInput = moment(rawInput, "x");
+            } else if (rawInput.length === 10) {
+                momentInput = moment(rawInput, "X");
+            }
+        } else if (rawInput.match(/^\d+\.\d*$/)) {
+            momentInput = moment(rawInput, "X");
+        }
+
+        if (!momentInput) {
+            momentInput = moment(rawInput);
+        }
+
+        if (momentInput.isValid()) {
+            var delta;
+            if (relativeTime) {
+                delta = relativeTime;
+            } else {
+                delta = momentInput.fromNow();
+                // formatTimeDelta(Math.floor(momentInput.unix() - (Date.now() / 1000.0)));
+            }
+
+            return {
+                "isValid": true,
+                "utc": momentInput.format(),
+                "unix": momentInput.unix(),
+                "delta": delta,
+                "local": momentInput.format(),
+            }
+        } else {
+            return {
+                "isValid": false,
+                "error": "Unable to parse input",
+            }
+        }
     }
 }
 
@@ -57,9 +114,10 @@ queryElement.oninput = inputUpdateHandler;
 queryElement.onpropertychange = queryElement.oninput;
 
 var deltaElement = document.getElementById('js-delta');
-var isoElement = document.getElementById('js-utc');
+var utcElement = document.getElementById('js-utc');
 var epochElement = document.getElementById('js-epoch');
 var localElement = document.getElementById('js-local');
+var errorElement = document.getElementById('js-error');
 
 /* begin by running the inputUpdateHandler on the input to ensure
  * any styles that we might want to apply are applied */
