@@ -123,3 +123,9 @@ input.invalid-input {
 .message:empty {
   display: none;
 }
+
+footer {
+  font-weight: 300;
+  font-size: 80%;
+  text-align: center;
+}
