@@ -19,7 +19,7 @@ html {
 }
 
 #search {
-  margin: 50px 0 50px 0;
+  margin: 30px 0 30px 0;
   text-align: center;
 }
 
@@ -73,7 +73,6 @@ input[type="text"] {
 
 .output-name {
   padding: 10px;
-  background-color: #c9c9c9;
   color: white;
   border-radius: 20px;
   text-align: center;
@@ -112,6 +111,11 @@ input.valid-input {
 
 input.invalid-input {
   border-bottom: 3px solid #C05C69;
+}
+
+.message {
+  text-align: center;
+  color: #969696;
 }
 
 .message:empty {
