@@ -23,7 +23,7 @@ queryElement.oninput = inputUpdateHandler;
 queryElement.onpropertychange = queryElement.oninput;
 
 var deltaElement = document.getElementById('js-delta');
-var isoElement = document.getElementById('js-iso');
+var isoElement = document.getElementById('js-utc');
 var epochElement = document.getElementById('js-epoch');
 var localElement = document.getElementById('js-local');
 
