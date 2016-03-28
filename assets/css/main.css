@@ -34,15 +34,16 @@ html {
 
 input[type="text"] {
   border: none;
+  border-radius: 2px;
   padding: 20px;
-  border-bottom: solid 2px #c9c9c9;
   background-color: white;
   outline: none;
   font-size: 1em;
-}
 
-input[type="text"]:focus {
-  border-bottom: solid 2px #969696;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
 }
 
 #output-data {
@@ -74,4 +75,16 @@ input[type="text"]:focus {
 .output-content {
   background-color: white;
   padding: 8px 20px;
+}
+
+input.no-input {
+  border-bottom: 2px solid #969696;
+}
+
+input.valid-input {
+  border-bottom: 2px solid rgba(81, 203, 81, 1);
+}
+
+input.invalid-input {
+  border-bottom: 2px solid rgba(203, 81, 81, 1);
 }
