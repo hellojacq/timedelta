@@ -64,7 +64,7 @@ input[type="text"]:focus {
   border-radius: 20px;
   text-align: center;
   width: 100px;
-  margin: 0px auto 20px auto;
+  margin: 0px auto 30px auto;
 }	
 
 .output-name:hover {
@@ -73,5 +73,5 @@ input[type="text"]:focus {
 
 .output-content {
   background-color: white;
-  padding: 5px 10px;
+  padding: 8px 20px;
 }
