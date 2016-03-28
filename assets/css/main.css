@@ -66,6 +66,9 @@ input[type="text"] {
   float: left;
   width: 300px;
   margin: 10px;
+  background-color: #ECECEC;
+  padding: 20px;
+  border-radius: 2px;
 }
 
 .output-name {
