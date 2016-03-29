@@ -1,0 +1,26 @@
+{
+  "name": "Timedelta",
+  "version": "1.0.0",
+  "description": "timedelta ================",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "less": "^2.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacquelinenlaw/timedelta.git"
+  },
+  "author": "Jacqueline Law",
+  "license": "None.",
+  "bugs": {
+    "url": "https://github.com/jacquelinenlaw/timedelta/issues"
+  },
+  "homepage": "https://github.com/jacquelinenlaw/timedelta"
+}
