@@ -40,7 +40,7 @@ sync:
 		--exclude 'tests' \
 		--exclude '*.pyc' \
 		* root@timedelta.com:/usr/local/timedelta
-	ssh root@timedelta.com "chmod a+r /usr/local/timedelta/static/images/*"
+	ssh root@timedelta.com "chmod -R a+r /usr/local/timedelta/static/*"
 
 bootstrap-remote:
 	rm -rf env
