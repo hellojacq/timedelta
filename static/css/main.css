@@ -68,8 +68,7 @@ input[type="text"] {
 
 .output {
   width: auto;
-  background-color: #ECECEC;
-  padding: 20px;
+  padding: 10px;
   border-radius: 2px;
   float: none;
 }
@@ -103,6 +102,11 @@ input[type="text"] {
   background-color: white;
   padding: 8px 20px;
   display: inline-block;
+}
+
+.output-container {
+  background-color: #ECECEC;
+  padding: 20px;
 }
 
 input.no-input {
