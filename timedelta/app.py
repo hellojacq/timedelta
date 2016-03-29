@@ -19,7 +19,7 @@ class TimedeltaApplication(tornado.web.Application):
     def __init__(self):
         settings = {
             "static_path": os.path.abspath(
-                os.path.join(os.path.dirname(__file__), "../assets")),
+                os.path.join(os.path.dirname(__file__), "../static")),
             "template_path": os.path.abspath(
                 os.path.join(os.path.dirname(__file__), "../templates")),
             "cookie_secret": "NotVeryRandomRightNow",

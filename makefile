@@ -52,8 +52,8 @@ bootstrap-remote:
 restart-remote:
 	service nginx reload
 
-deploy-base: test sync 
-	scp config/nginx/timedelta root@timedelta.com:/etc/nginx/sites-available/timedelta
+deploy-base: sync 
+	scp config/nginx/nginx.conf root@timedelta.com:/etc/nginx/nginx.conf
 
 deploy: deploy-base
 	ssh root@timedelta.com "cd /usr/local/timedelta ; make restart-remote"
