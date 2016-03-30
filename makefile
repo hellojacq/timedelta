@@ -50,10 +50,13 @@ bootstrap-remote:
 		pip install -e .
 
 restart-remote:
+	service timedelta status
+	service timedelta restart
 	service nginx reload
 
 deploy-base: sync 
 	scp config/nginx/nginx.conf root@timedelta.com:/etc/nginx/nginx.conf
+	scp config/service/timedelta.conf root@timedelta.com:/etc/init/timedelta.conf
 
 deploy: deploy-base
 	ssh root@timedelta.com "cd /usr/local/timedelta ; make restart-remote"
