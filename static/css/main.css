@@ -1,13 +1,17 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: whitesmoke;
-  font-family: 'Muli', helvetica neue, arial, sans-serif;
-  color: #161925;
+
 }
 
 html {
   box-sizing: border-box;
+}
+
+body {  
+  background-color: whitesmoke;
+  font-family: 'Muli', helvetica neue, arial, sans-serif;
+  color: #161925;
 }
 
 *, *:before, *:after {
