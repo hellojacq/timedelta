@@ -62,6 +62,7 @@ var TimeInfoResult = (function () {
 function getTimeInfo(rawInput) {
     var momentInput = null;
     var relativeTime = "";
+    var matches;
     rawInput = rawInput.trim();
     if (!rawInput) {
         return {
@@ -76,12 +77,54 @@ function getTimeInfo(rawInput) {
             relativeTime = "now";
         }
         else if (rawInput.match(/^\d+$/)) {
-            if (rawInput.length == 13) {
+            if (rawInput.length >= 13) {
                 momentInput = moment(rawInput, "x");
             }
-            else if (rawInput.length === 10) {
+            else {
                 momentInput = moment(rawInput, "X");
             }
+        }
+        else if (matches = rawInput.match(/\s*(-?\.?\d+(\.\d*)?)\s*ye?a?r?.* ago/i)) {
+            momentInput = moment(Number(new Date()) - Number(matches[1]) * 365 * 24 * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(in\s+)?(-?\.?\d+(\.\d*)?)\s*ye?a?r?.*/i)) {
+            momentInput = moment(Number(new Date()) + Number(matches[2]) * 365 * 24 * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(-?\.?\d+(\.\d*)?)\s*mon?t?h?.* ago/i)) {
+            momentInput = moment(Number(new Date()) - Number(matches[1]) * 30 * 24 * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(in\s+)?(-?\.?\d+(\.\d*)?)\s*mon?t?h?.*/i)) {
+            momentInput = moment(Number(new Date()) + Number(matches[2]) * 30 * 24 * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(-?\.?\d+(\.\d*)?)\s*we?e?k?.* ago/i)) {
+            momentInput = moment(Number(new Date()) - Number(matches[1]) * 7 * 24 * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(in\s+)?(-?\.?\d+(\.\d*)?)\s*we?e?k?.*/i)) {
+            momentInput = moment(Number(new Date()) + Number(matches[2]) * 7 * 24 * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(-?\.?\d+(\.\d*)?)\s*da?y?.* ago/i)) {
+            momentInput = moment(Number(new Date()) - Number(matches[1]) * 24 * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(in\s+)?(-?\.?\d+(\.\d*)?)\s*da?y?.*/i)) {
+            momentInput = moment(Number(new Date()) + Number(matches[2]) * 24 * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(-?\.?\d+(\.\d*)?)\s*ho?u?r?.* ago/i)) {
+            momentInput = moment(Number(new Date()) - Number(matches[1]) * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(in\s+)?(-?\.?\d+(\.\d*)?)\s*ho?u?r?.*/i)) {
+            momentInput = moment(Number(new Date()) + Number(matches[2]) * 60 * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(-?\.?\d+(\.\d*)?)\s*mi?n?.* ago/i)) {
+            momentInput = moment(Number(new Date()) - Number(matches[1]) * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(in\s+)?(-?\.?\d+(\.\d*)?)\s*mi?n?.*/i)) {
+            momentInput = moment(Number(new Date()) + Number(matches[2]) * 60 * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(-?\.?\d+(\.\d*)?)\s*se?c?.* ago/i)) {
+            momentInput = moment(Number(new Date()) - Number(matches[1]) * 1000, "x");
+        }
+        else if (matches = rawInput.match(/\s*(in\s+)?(-?\.?\d+(\.\d*)?)\s*se?c?.*/i)) {
+            momentInput = moment(Number(new Date()) + Number(matches[2]) * 1000, "x");
         }
         else if (rawInput.match(/^\d+\.\d*$/)) {
             momentInput = moment(rawInput, "X");

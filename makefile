@@ -30,7 +30,10 @@ clean:
 	echo Deleting pyc files...
 	@find . -name '*.py[co]' -exec rm -f '{}' ';'
 
-sync:
+%.js: %.ts
+	tsc $<
+
+sync: static/js/main.js
 	rsync -avz --delete \
 		--exclude '*.log' \
 		--exclude '*.swp' \
