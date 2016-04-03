@@ -25,11 +25,11 @@ function removeClass(el, className) {
     }
 }
 
-function updateDependencies(timeInfo) {
+function updateDependencies(timeInfo: TimeInfo) {
     deltaElement.innerText = timeInfo.delta;
     utcElement.innerText = timeInfo.utc;
     localElement.innerText = timeInfo.local;
-    epochElement.innerText = timeInfo.unix;
+    epochElement.innerText = timeInfo.unix.toString();
     errorElement.innerText = "";
 }
 
@@ -41,15 +41,15 @@ function inputUpdateHandler(event) {
 
     var input = event.target.value;
     if (input) {
-        var timeInfo = getTimeInfo(input);
+        var timeInfoResult : TimeInfoResult = getTimeInfo(input);
 
-        if (timeInfo.isValid) {
+        if (timeInfoResult.isValid) {
             addClass(queryElement, "valid-input");
-            updateDependencies(timeInfo);
+            updateDependencies(timeInfoResult.timeInfo);
         } else {
             addClass(queryElement, "invalid-input");
-            if (timeInfo.error) {
-                errorElement.innerText = timeInfo.error;
+            if (timeInfoResult.error) {
+                errorElement.innerText = timeInfoResult.error;
             }
         }
     } else {
