@@ -143,10 +143,10 @@ function getTimeInfo(rawInput) {
             return {
                 isValid: true,
                 timeInfo: {
-                    utc: momentInput.format(),
+                    utc: momentInput.toDate().toUTCString(),
                     unix: momentInput.unix(),
                     delta: delta,
-                    local: momentInput.format()
+                    local: momentInput.toDate().toString()
                 },
                 error: null
             };
